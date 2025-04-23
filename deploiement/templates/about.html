@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>À propos - Fake News Detector</title>
+    <title>About - Fake News Detector</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <style>
       .container {
@@ -31,31 +31,47 @@
       <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo">
     </div>
     <div class="brand-text">
-      Détection de Fake News
+      Fake News Detection
     </div>
     <ul class="nav-links">
       <li><a href="{{ url_for('home') }}">Accueil</a></li>
-      <li><a href="{{ url_for('prediction') }}">Prédiction</a></li>
-      <li><a href="{{ url_for('about') }}" class="active">À propos</a></li>
+      <li><a href="{{ url_for('prediction') }}">Prediction</a></li>
+      <li><a href="{{ url_for('about') }}" class="active">About</a></li>
     </ul>
   </nav>
 
   <div class="container">
-    <h2>À propos de l'application</h2>
+    <h2>About the Application</h2>
     <p>
-      Cette application utilise un modèle de machine learning pour détecter les fausses informations (fake news).
-      Elle est conçue pour aider les utilisateurs à identifier rapidement les publications trompeuses sur Internet.
+      This web application was developed as part of a consulting initiative for the <strong>Federal Communications Commission (FCC)</strong>,
+      the independent U.S. agency that regulates both the content and infrastructure of communications at the federal level.
     </p>
     <p>
-      Le modèle a été entraîné sur un jeu de données contenant des centaines d'articles étiquetés comme vrais ou faux,
-      utilisant une combinaison de techniques de traitement du langage naturel (TF-IDF, nettoyage de texte, etc.) et un classificateur 
-      comme la régression logistique ou Random Forest.
+      The goal of this application is to provide a tool capable of <strong>automatically identifying fake news articles</strong>,
+      particularly those announcing disasters or other sensitive topics. Since it is not always easy to determine whether an article is real or fake,
+      the FCC wishes to use machine learning to assist in this classification task.
     </p>
     <p>
-      Ce projet a un but éducatif et illustratif. Il peut être affiné avec des données supplémentaires ou utilisé comme base pour une solution plus robuste.
+      The model used here is a <strong>Multinomial Naive Bayes classifier</strong> trained on a labeled dataset of news articles.
+      It is part of a pipeline that includes preprocessing techniques such as text normalization, frequency filtering, and TF-IDF vectorization.
+    </p>
+    <p>
+      <strong>Important:</strong> This application is designed to process and analyze articles written in <strong>English only</strong>.
+      Submitting texts in other languages may lead to incorrect or unreliable predictions.
+    </p>
+    <p>
+      Prediction results are visually indicated as follows:
+      <ul>
+        <li style="color:#2ecc71;"><strong>Green</strong> = Likely true information</li>
+        <li style="color:#e74c3c;"><strong>Red</strong> = Likely fake news</li>
+      </ul>
+    </p>
+    <p>
+      This project has educational value and can also serve as a basis for future developments. It can be improved with multilingual support,
+      more extensive datasets, or deep learning-based classifiers.
     </p>
     <p style="text-align:center; font-style: italic;">
-      Pour toute question ou suggestion : <a href="mailto:boubaibnaziz7652@gmail.com">boubaibnaziz7652@gmail.com</a>
+      For any inquiries or suggestions, please contact: <a href="mailto:boubaibnaziz7652@gmail.com">groupe4nlp@ensae.com</a>
     </p>
   </div>
 </body>
