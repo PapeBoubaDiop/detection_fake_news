@@ -7,22 +7,22 @@ Ce projet est une application web construite avec **Flask** pour détecter si un
 
 ## 📁 Structure du projet
 
-fake-news-detection/
-│
-├── app.py
-├── models/
-│   └── pipeline_mnb.pkl
-├── templates/
-│   ├── base.html
-│   ├── home.html
-│   ├── about.html
-│   └── prediction.html
-├── static/
-│   ├── style.css
-│   └── img/
-│       └── logo.png
-├── fake_news_detection.ipynb
-└── README.md
+fake-news-detection/  
+│  
+├── app.py  
+├── models/  
+│   └── pipeline_mnb.pkl  
+├── templates/  
+│   ├── base.html  
+│   ├── home.html  
+│   ├── about.html  
+│   └── prediction.html  
+├── static/  
+│   ├── style.css  
+│   └── img/  
+│       └── logo.png  
+├── fake_news_detection.ipynb  
+└── README.md  
 
 ---
 
@@ -30,7 +30,7 @@ fake-news-detection/
 
 ```bash
 git clone https://github.com/PapeBoubaDiop/detection_fake_news.git
-cd detection_fake_news
+cd detection_fake_news/deploiement
 
 ```
 
