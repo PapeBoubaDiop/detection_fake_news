@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Prédiction - Fake News Detector</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <style>
+    .result-box {
+      margin-top: 20px;
+      padding: 20px;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: white;
+      text-align: center;
+      border-radius: 8px;
+    }
+    .result-fake {
+      background-color: #e74c3c;
+    }
+    .result-real {
+      background-color: #2ecc71;
+    }
+    .form-container {
+      max-width: 700px;
+      margin: auto;
+      padding: 20px;
+      background: #f7f7f7;
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="brand-text">
+    Fake News Detection
+  </div>
+  <ul class="nav-links">
+    <li><a href="{{ url_for('home') }}">Accueil</a></li>
+    <li><a href="{{ url_for('prediction') }}" class="active">Prédiction</a></li>
+    <li><a href="{{ url_for('about') }}">À propos</a></li>
+  </ul>
+</nav>
+
+<div class="container form-container">
+  <h2>Détection de Fake News</h2>
+  <form method="post">
+    <label for="day">Jour :</label>
+    <input type="number" name="day" min="1" max="31" required value="{{ form_data.day }}">
+
+    <label for="month">Mois :</label>
+    <input type="number" name="month" min="1" max="12" required value="{{ form_data.month }}">
+
+    <label for="year">Année :</label>
+    <input type="number" name="year" required value="{{ form_data.year }}">
+    
+    <label for="subject">Sujet :</label>
+    <select name="subject" required>
+      {% set subjects = ['News', 'politicsNews', 'politics', 'worldnews', 'Government News', 'left-news', 'Middle-east', 'US_News'] %}
+      {% for subj in subjects %}
+        <option value="{{ subj }}" {% if form_data.subject == subj %}selected{% endif %}>{{ subj }}</option>
+      {% endfor %}
+    </select>
+    <label for="title">Titre de l'article :</label>
+    <input type="text" name="title" required value="{{ form_data.title }}">
+
+    <label for="text">Contenu de l'article :</label>
+    <textarea name="text" rows="6" required>{{ form_data.text }}</textarea>
+
+
+    <input type="submit" value="Prédire">
+  </form>
+
+  {% if prediction_result %}
+    <div class="result-box {% if result_color == '#e74c3c' %}result-fake{% else %}result-real{% endif %}">
+      {{ prediction_result }}
+    </div>
+  {% endif %}
+</div>
+
+</body>
+</html>
