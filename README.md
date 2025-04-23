@@ -5,9 +5,9 @@ Ce projet est une application web construite avec **Flask** pour détecter si un
 
 ---
 
-## 📁 Structure du projet
+## 📁 Structure application
 
-fake-news-detection/  
+deploiement/  
 │  
 ├── app.py  
 ├── models/  
@@ -21,7 +21,6 @@ fake-news-detection/
 │   ├── style.css  
 │   └── img/  
 │       └── logo.png  
-├── fake_news_detection.ipynb  
 └── README.md  
 
 ---
